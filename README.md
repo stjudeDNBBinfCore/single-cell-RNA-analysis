@@ -1,1 +1,1 @@
-This is the `single-cell-RNA-analysis` pipeline.
+This is the `single-cell-RNA-analysis` pipeline..
