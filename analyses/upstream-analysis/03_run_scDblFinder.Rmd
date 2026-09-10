@@ -142,8 +142,9 @@ suppressPackageStartupMessages({
   library(knitr)
 
   # Evaluate Seurat R expressions asynchronously when possible using future package
-  options(future.globals.maxSize = future_globals_value) 
-  plan(multisession, workers = parallelly::availableCores())})
+  options(future.globals.maxSize = future_globals_value)
+  source(normalizePath(file.path("..", "..", "scripts", "snap_parallel_plan.R"), winslash = "/"))
+  snap_set_future_plan()})
 ```
 
 ```{r echo=FALSE,warning=FALSE}
@@ -236,7 +237,9 @@ for (i in seq_along(sample_name)) {
   cat("Beginning to run scDblFinder for sample", sample_name[i], "\n")
   
   # Run scDblFinder
-  bp <- BiocParallel::MulticoreParam(4, RNGseed=1234)
+  # bp <- BiocParallel::MulticoreParam(4, RNGseed=1234)
+  # MulticoreParam uses fork(), which can bus-error in Singularity on NFS mounts.
+  bp <- BiocParallel::SerialParam(RNGseed = 1234)
   BiocParallel::bpstart(bp)
   
   set.seed(1234) # Make this reproducible 

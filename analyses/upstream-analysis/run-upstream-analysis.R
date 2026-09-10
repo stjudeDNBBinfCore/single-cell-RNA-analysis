@@ -9,14 +9,12 @@ suppressPackageStartupMessages({
   library(yaml)})
 
 #################################################################################
-# load config file
-configFile <- paste0("../../project_parameters.Config.yaml")
-if (!file.exists(configFile)){
-  cat("\n Error: configuration file not found:", configFile)
-  stop("Exit...")}
-
-# read `yaml` file defining the `params` of the project and strategy analysis
-yaml <- read_yaml(configFile)
+# Load config: WDL/Sprocket uses inputs/project_parameters.generated.yaml
+# (SNAP_CONFIG_FILE is set in wdl/tasks.wdl). Interactive, LSF, and
+# launch_full_pipeline.sh use project_parameters.Config.yaml.
+snap_root <- normalizePath("../..", winslash = "/")
+source(file.path(snap_root, "scripts", "snap_read_config.R"))
+yaml <- snap_load_project_config(snap_root)
 
 #################################################################################
 # Set up directories and paths to root_dir and analysis_dir

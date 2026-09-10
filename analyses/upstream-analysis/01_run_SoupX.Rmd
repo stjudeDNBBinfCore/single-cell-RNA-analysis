@@ -155,7 +155,8 @@ suppressPackageStartupMessages({
   library(Matrix)
 
   # Evaluate Seurat R expressions asynchronously when possible using future package
-  plan(multisession, workers = parallelly::availableCores())})
+  source(normalizePath(file.path("..", "..", "scripts", "snap_parallel_plan.R"), winslash = "/"))
+  snap_set_future_plan()})
 ```
 
 # Directories and paths to file Inputs/Outputs
