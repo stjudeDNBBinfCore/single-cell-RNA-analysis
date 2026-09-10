@@ -1,0 +1,29 @@
+# Sprocket local/VM config — Docker backend (no LSF, no Apptainer).
+#
+# Use this file for hackathon testing on a shared VM or personal laptop when
+# St. Jude HPC is unavailable. Production runs on HPC should use sprocket.toml.
+#
+# Quick start:
+#   cd analyses/sc-rna-seq-snap-Victoria-Knockout
+#   sprocket check wdl/snap.wdl
+#   sprocket validate wdl/snap.wdl @inputs/sprocket_inputs.json --config sprocket.local.toml
+#   sprocket run wdl/snap.wdl @inputs/sprocket_inputs.json --config sprocket.local.toml
+#
+# Prerequisites:
+#   - Docker daemon running (Docker Desktop on Mac/Windows, or docker on Linux)
+#   - container_image in YAML set to docker://achroni/rstudio_4.4.0_seurat_4.4.0:latest
+#   - 64 GB RAM recommended on the runner machine for upstream-only live runs
+#
+# Docs: ../../docs/vm-local-only-setup.md
+# Reference: https://sprocket.bio/configuration/backends/docker.html
+
+[run]
+backend = "local_docker"
+
+[run.backends.local_docker]
+type = "docker"
+# Keep low on shared laptops; raise on a dedicated runner (e.g. 4).
+max_concurrency = 2
+
+[run.workflow.scatter]
+concurrency = 4

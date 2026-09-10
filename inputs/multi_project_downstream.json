@@ -1,0 +1,50 @@
+{
+  "sc_rna_seq_snap_downstream_multi_project.projects": [
+    {
+      "project_name": "project_alpha",
+      "snap_root": "/research/dept/dnb/core_operations/Bioinformatics/project_alpha/sc-rna-seq-snap",
+      "container_image": "/research/dept/dnb/core_operations/Bioinformatics/project_alpha/sc-rna-seq-snap/rstudio_4.4.0_seurat_4.4.0_latest.sif",
+      "notify_email": "achroni@stjude.org",
+      "run_upstream": true,
+      "run_integrative": true,
+      "run_cluster": true,
+      "num_samples": 8,
+      "estimated_cells_per_sample": 50000,
+      "upstream_cpu": 16,
+      "upstream_memory_gb": 30,
+      "upstream_future_globals_gib": 200,
+      "upstream_lsf_queue": "standard",
+      "integrative_cpu": 10,
+      "integrative_memory_gb": 96,
+      "integrative_future_globals_gib": 200,
+      "integrative_lsf_queue": "standard",
+      "cluster_cpu": 4,
+      "cluster_memory_gb": 48,
+      "cluster_future_globals_gib": 400,
+      "cluster_lsf_queue": "standard"
+    },
+    {
+      "project_name": "project_beta",
+      "snap_root": "/research/dept/dnb/core_operations/Bioinformatics/project_beta/sc-rna-seq-snap",
+      "container_image": "/research/dept/dnb/core_operations/Bioinformatics/project_beta/sc-rna-seq-snap/rstudio_4.4.0_seurat_4.4.0_latest.sif",
+      "notify_email": "achroni@stjude.org",
+      "run_upstream": true,
+      "run_integrative": false,
+      "run_cluster": false,
+      "num_samples": 16,
+      "estimated_cells_per_sample": 80000,
+      "upstream_cpu": 24,
+      "upstream_memory_gb": 50,
+      "upstream_future_globals_gib": 250,
+      "upstream_lsf_queue": "standard",
+      "integrative_cpu": 16,
+      "integrative_memory_gb": 120,
+      "integrative_future_globals_gib": 250,
+      "integrative_lsf_queue": "standard",
+      "cluster_cpu": 8,
+      "cluster_memory_gb": 64,
+      "cluster_future_globals_gib": 500,
+      "cluster_lsf_queue": "standard"
+    }
+  ]
+}

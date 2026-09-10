@@ -1,0 +1,171 @@
+root_dir: /research_jude/rgs01_jude/dept/DNB/core_operations/Bioinformatics/achroni/GitHub/stjude-biohackathon/stjude-biohackathon-KIDS26/sc-rna-seq-snap-sprocket
+data_dir: /research_jude/rgs01_jude/dept/DNB/core_operations/Bioinformatics/achroni/GitHub/stjude-biohackathon/stjude-biohackathon-KIDS26/sc-rna-seq-snap-sprocket/analyses/cellranger-analysis/results/02_cellranger_count/DefaultParameters
+metadata_dir: /research_jude/rgs01_jude/dept/DNB/core_operations/Bioinformatics/achroni/GitHub/stjude-biohackathon/stjude-biohackathon-KIDS26/sc-rna-seq-snap-sprocket/data/project_metadata
+metadata_file: project_metadata.tsv
+genome_name: GRCm39
+PROJECT_NAME: Victoria_Knockout - sc-rna-seq-snap-sprocket
+PI_NAME: Michael A. Dyer, PhD
+TASK_ID: Testing Cohort - stjude-biohackathon-KIDS26/KIDS26-Team15
+PROJECT_LEAD_NAME: NA
+DEPARTMENT: Developmental Neurobiology
+LEAD_ANALYSTS: Antonia Chroni, PhD
+GROUP_LEAD: Cody A. Ramirez, PhD
+CONTACT_EMAIL: antonia.chroni@stjude.org
+PIPELINE: Standard sc-/sn-RNA-Seq Analysis in 10X Genomics data
+START_DATE: 09/16/2026
+COMPLETION_DATE: 09/18/2026
+resource_profile:
+  num_samples: 4
+  estimated_cells_per_sample: 6725
+  total_estimated_cells: 26901
+  resource_tier: default
+  scale_factor: 1
+  container_image: /research/dept/dnb/core_operations/Bioinformatics/achroni/stjude-biohackathon/stjude-biohackathon-KIDS26/sc-rna-seq-snap-sprocket/rstudio_4.4.0_seurat_4.4.0_latest.sif
+  cell_count_source: cellranger_metrics
+  cellranger_total_cells: 26901
+  cellranger_max_cells_per_sample: 8208
+workflow_profile:
+  run_upstream: yes
+  run_integrative: no
+  run_cluster: no
+  run_contamination_removal: no
+  run_cell_types: no
+  run_clone_phylogeny: no
+  run_de_go: no
+  run_rshiny: no
+genome_reference_path: ./reference_genomes/cellranger-sc-rna-seq/2024-A/mus_musculus/GRCm39/downloads/refdata-gex-GRCm39-2024-A
+cellranger_parameters: DefaultParameters
+genome_name_cellranger: GRCm39
+create_bam_value: 'false'
+sample_prefix: DYE_
+print_pdf_seurat_multiple_samples: 'YES'
+use_condition_split_seurat_multiple_samples: 'NO'
+grouping: orig.ident
+Regress_Cell_Cycle_value: 'NO'
+assay_seurat_qc: RNA
+use_SoupX_filtering_seurat_qc: 'NO'
+min_genes: 300
+min_count: 500
+mtDNA_pct_default: 10
+normalize_method: log_norm
+num_pcs: 30
+nfeatures_value: 3000
+prefix: lognorm
+use_miQC: 'NO'
+use_only_step1: 'NO'
+condition_value1: condition
+condition_value2: ~
+condition_value3: ~
+num_dim_seurat_qc: 30
+num_neighbors_seurat_qc: 30
+soup_fraction_value_default: 0.05
+assay_filter_object: RNA
+genome_name_upstream: GRCm39
+num_dim_filter_object: 30
+num_neighbors_filter_object: 30
+use_condition_split_filter_object: 'YES'
+print_pdf_filter_object: 'NO'
+use_SoupX_filtering_filter_object: 'NO'
+use_scDblFinder_filtering_filter_object: 'NO'
+use_SoupX_filtering_summary_report: 'NO'
+use_scDblFinder_filtering_summary_report: 'NO'
+future_globals_value_upstream: 200
+use_seurat_integration: 'NO'
+use_harmony_integration: 'YES'
+use_liger_integration: 'NO'
+integration_method: harmony
+num_dim_seurat: 30
+num_dim_seurat_integration: 50
+big_data_value: no
+num_dim_harmony: 30
+n_neighbors_value: 20
+variable_value: ID
+reference_list_value: ~
+PCA_Feature_List_value: ~
+future_globals_value_integrative: 200
+data_dir_module_name: integrative-analysis
+umap_value: umap
+resolution_clustering_module: default_multiple
+integration_method_clustering_module: harmony
+num_dim_clustering_module: 30
+reduction_value_clustering_module: harmony
+assay_clustering_module: RNA
+resolution_list_clustering_module: ~
+resolution_list_default_clustering_module:
+- 0
+- 0.1
+- 0.2
+- 0.3
+- 0.4
+- 0.5
+- 0.6
+- 0.7
+- 0.8
+- 0.9
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+algorithm_value_clustering_module: 4
+resolution_find_markers: default_multiple
+resolution_list_find_markers: 0.1
+n_value_find_markers: 10
+future_globals_value_clustering: 400
+keep_clusters_contamination_module:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 7
+- 8
+- 9
+- 10
+- 12
+- 13
+- 15
+- 16
+assay_contamination_module: RNA
+future_globals_value_contamination: 400
+genome_name_contamination: GRCm39
+module_with_input_data: cluster-cell-calling
+input_data_folder_name: 01_cluster_cell_calling
+reduction_value_annotation_module: umap
+min.diff.med_value_annotation_module: 0.1
+use_min.diff.med_annotation_module: 'NO'
+assay_annotation_module: RNA
+reference_assay_annotation_module: RNA
+singler_celldex_reference: MouseRNAseqData
+gene_markers_dir_annotation_module: /research/dept/dnb/core_operations/Bioinformatics/achroni/GitHub/stjude-biohackathon/stjude-biohackathon-KIDS26/KIDS26-Team15/analyses/sc-rna-seq-snap-Victoria-Knockout/data/
+gene_markers_file_name_annotation_module: retinal_cell_type_top50_gene_markers-2-UPDATED.tsv
+method_annotation_module: gene_markers
+ct_palette_file_broad: cell_types_palette.tsv
+ct_palette_file_fine: cell_types_palette.tsv
+ct_palette_file_gene_markers: cell_types_palette.tsv
+ct_palette_file_reference: cell_types_palette.tsv
+reference_dir_annotation_module: ./
+reference_file_name_annotation_module: <filename>.rds
+celltype_reference_module: predicted.cell.signature.ident
+annotations_dir_rshiny_app: cell_types_annotations_all
+annotations_filename_rshiny_app: seurat_obj_cell_types_annotations_all.rds
+sample: ~
+cell_type_label_numbat: predicted.cell.signature.ident
+min_LLR_value_numbat: 50
+ct_palette_file_numbat: cell_types_palette.tsv
+palette_variable_numbat: timepoint_palette.tsv
+variable_numbat: timepoint
+cell_type_label_go_module: predicted.cell.signature.ident
+OrgDb_value: org.Mm.eg.db
+universe_value_module: 'YES'
+show_number_pathways_value_module: 20
+future_globals_value_dego: 200
+results_filepath: ./
+mac_results_filepath: ./
+cohort_value: /NAME_OF_FORK_REPO>
+gene_markers_dir: /research_jude/rgs01_jude/dept/DNB/core_operations/Bioinformatics/achroni/GitHub/stjude-biohackathon/stjude-biohackathon-KIDS26/sc-rna-seq-snap-sprocket/data

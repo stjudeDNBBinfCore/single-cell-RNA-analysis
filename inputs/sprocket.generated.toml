@@ -1,0 +1,21 @@
+# Sprocket 0.30.x config for sc-rna-seq-snap on St. Jude HPC (LSF + Singularity).
+# Container image is passed per-task via workflow input container_image (see wdl/tasks.wdl).
+# Schema reference: https://sprocket.bio/guides/lsf.html
+
+[run]
+backend = "default"
+
+[run.backends.default]
+type = "lsf_apptainer"
+max_concurrency = 50
+job_name_prefix = "snap"
+default_lsf_queue.name = "standard"
+default_lsf_queue.max_cpu_per_task = 24
+default_lsf_queue.max_memory_per_task = "512 GiB"
+
+[run.backends.default.apptainer]
+# Full path helps LSF compute nodes that do not inherit login-node PATH.
+executable = "/usr/bin/apptainer"
+
+[run.workflow.scatter]
+concurrency = 200
